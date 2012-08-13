@@ -8,5 +8,301 @@
     <artifactId>November</artifactId>
     <version>1.0</version>
 
+    <packaging>war</packaging>
+    <name>Web page</name>
+    <description>Java technologies</description>
+    <inceptionYear>2012</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:svn:http://${project.artifactId}.googlecode.com/svn/trunk/</connection>
+        <developerConnection>scm:svn:https://${project.artifactId}.googlecode.com/svn/trunk/</developerConnection>
+        <url>http://code.google.com/p/${project.artifactId}/source/browse/</url>
+    </scm>
+
+    <issueManagement>
+        <url>http://code.google.com/p/${project.artifactId}/issues/list</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>idzivinskyi</id>
+            <name>Ilya Dzivinskyi</name>
+            <email>i.dzivinskyi@gmail.com</email>
+            <roles>
+                <role>project owner</role>
+                <role>architect</role>
+                <role>developer</role>
+                <role>tester</role>
+            </roles>
+            <timezone>+2</timezone>
+            <properties>
+                <gtalk>i.dzivinskyi@gmail.com</gtalk>
+            </properties>
+        </developer>
+    </developers>
+
+    <properties>
+        <jdk>1.7</jdk>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <gae.home>/home/november/appengine-java-sdk-1.6.6/</gae.home>
+        <db.dir>${project.basedir}${file.separator}db</db.dir>
+        <db.url>jdbc:hsqldb:file:${db.dir}/name.stokito;ifexists=false;shutdown=true</db.url>
+        <test.db.dir>${project.build.directory}${file.separator}db</test.db.dir>
+        <test.db.url>jdbc:hsqldb:file:${test.db.dir}/name.stokito;ifexists=true</test.db.url>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>codehaus-snapshots</id>
+            <url>http://snapshots.repository.codehaus.org</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!--Ajax-->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.7</version>
+        </dependency>
+        <!-- Database -->
+        <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <!-- JSP & JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>3.0.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>3.0.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>3.0.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>3.0.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>3.0.6.RELEASE</version>
+        </dependency>
+        <!-- test scoped dependencies -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>3.0.6.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- validation -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator-annotation-processor</artifactId>
+            <version>4.2.0.Final</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>3.0.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>3.0.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.6.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+            <version>1.6.12</version>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${jdk}</source>
+                    <target>${jdk}</target>
+                    <compilerVersion>${jdk}</compilerVersion>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>net.kindleit</groupId>
+                <artifactId>maven-gae-plugin</artifactId>
+                <version>0.8.4</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.kindleit</groupId>
+                        <artifactId>gae-runtime</artifactId>
+                        <version>1.5.1</version>
+                        <type>pom</type>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <sdkDir>${gae.home}</sdkDir>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>tomcat-maven-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <path>/</path>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.dbmaintain</groupId>
+                <artifactId>dbmaintain-maven-plugin</artifactId>
+                <version>2.4</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>hsqldb</groupId>
+                        <artifactId>hsqldb</artifactId>
+                        <version>1.8.0.1</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <databases>
+                        <database>
+                            <driverClassName>org.hsqldb.jdbcDriver</driverClassName>
+                            <url>${db.url}</url>
+                            <dialect>hsqldb</dialect>
+                            <userName>sa</userName>
+                            <!--<password></password>-->
+                            <schemaNames>public</schemaNames>
+                        </database>
+                    </databases>
+                    <scriptLocations>src/main/sql</scriptLocations>
+                    <scriptEncoding>${project.build.sourceEncoding}</scriptEncoding>
+                    <autoCreateDbMaintainScriptsTable>true</autoCreateDbMaintainScriptsTable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>updateDatabase</id>
+                        <goals>
+                            <goal>updateDatabase</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
     
 </project>
